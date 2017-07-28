@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>图片预加载</title>
+  <style>
+    html,body {
+      height: 100%
+    }
+    .box{
+      text-align: center;
+    }
+    .btn {
+      display: inline-block;
+      height: 30px;
+      line-height: 30px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      padding: 0 10px;
+      margin-right: 50px;
+      color: #333;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #eee;
+    }
+    .loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #eee;
+      text-align: center;
+      font-size: 50px;
+    }
+    .progress {
+      margin-top: 300px;
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+  <img src="http://img3.xiazaizhijia.com/walls/20160408/1440x900_d7a3791d242d0df.jpg" alt="pic" id="img" width="800">
+  <p>
+    <a href="#" class="btn" data-control="prev">上一页</a>
+    <a href="#" class="btn" data-control="next">下一页</a>
+  </p>
+</div>
+<div class="loading">
+  <p class="progress">0%</p>
+</div>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="js/preload.js"></script>
+<script>
+  var images = [
+    'http://img5.xiazaizhijia.com/walls/20151010/1440x900_fad4ecdd1de81ac.jpg',
+    'http://img4.xiazaizhijia.com/walls/20151010/1440x900_d93d7ef632c9f7a.jpg',
+    'http://img1.xiazaizhijia.com/walls/20151010/1440x900_a248a0b2874b5a4.jpg',
+    'http://img4.xiazaizhijia.com/walls/20151010/1440x900_b941a1c70d1d624.jpg',
+    'http://img2.xiazaizhijia.com/walls/20151010/1440x900_70c8025b4eff128.jpg'
+  ];
+
+  var index = 0;
+  var len = images.length;
+  var $progress = $('.progress');
+
+  // $.each(images, function(i, src) {
+  //   var imgObj = new Image();
+
+  //   $(imgObj).on('load error', function() {
+  //     count++;
+  //     $progress.html(Math.round(count/len*100) + '%');
+  //     if (count >= len - 1) {
+  //       $('.loading').fadeOut();
+  //       document.title = '1/' + len;
+  //     }
+  //   })
+  //   imgObj.src = src;
+  // })
+
+  $.preload(images,{
+    each: function(count) {
+      $progress.html(Math.round(count/len*100) + '%');
+    },
+    all: function() {
+      $('.loading').fadeOut();
+      document.title = '1/' + len;
+    }
+  })
+
+  $('.btn').on('click', function() {
+    if ($(this).data('control') === 'prev') { // 上一张
+      index = Math.max(0, --index);
+    } else {
+      index = Math.min(len-1, ++index);
+    }
+    document.title = (index + 1) + '/' + len;
+    $("#img").attr('src' ,images[index]);
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>移动端对话框组件</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <script src="js/zepto.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-size: 12px;
+      padding: 20px;
+    }
+/*    button {
+      display: block;
+      padding: 10px;
+      margin: 20px 0;
+      width: 100%;
+      font-size: 16px;
+      background-color: orange;
+      border-radius: 10px;
+      border: 1px solid #e6e6e6;
+    }*/
+  </style>
+  <link rel="stylesheet" href="dialog.css">
+</head>
+<body>
+  
+<div class="g-dialog-container">
+  <div class="dialog-window">
+    <div class="dialog-header"></div>
+    <div class="dialog-content">你是否要清空购物车</div>
+    <div class="dialog-footer">
+      <button>确定</button>
+      <button>取消</button>
+    </div>
+  </div>
+</div>
+
+<button id="btn1">没有传递任何参数(需要手动关闭)</button>
+<button id="btn2">弹出一个不带任何按钮的,且是警告的框,并且2秒后自动关闭</button>
+<button id="btn3">弹出一个有确认按钮和取消按钮的成功框,点击按钮直接关闭</button>
+<button id="btn4">弹出一个有确认按钮的警告框,点击按钮不关闭(需手动关闭)</button>
+<button id="btn5">弹出一个多组合的按钮框,且样式可定制</button>
+<button id="btn6">弹出一个确认按钮和删除的框,点击确认弹出加载框2秒后自动关闭,点击删除按钮把上一次框关闭</button>
+</body>
+</html>

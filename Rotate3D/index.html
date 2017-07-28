@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>旋转木马</title>
+<link rel="stylesheet" href="./index.css">
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="./carousel.js"></script>
+</head>
+<body style="padding: 50px">
+<div class="j_poster poster-mian" data-setting='{
+			"width": 1000,
+			"height": 270,
+			"posterWidth": 640,
+			"posterHeight": 270,
+			"scale": 0.9,
+			"speed": 500,
+			"verticalAlign": "middle"
+		}'>
+	<div class="poster-btn prev-btn"></div>
+	<div class="poster-btn next-btn"></div>
+	<ul class="poster-list">
+		<li class="poster-item"><a href="#"><img src="../images/1.jpg" width="100%"></a></li>
+		<li class="poster-item"><a href="#"><img src="../images/2.jpg" width="100%"></a></li>
+		<li class="poster-item"><a href="#"><img src="../images/3.jpg" width="100%"></a></li>
+		<li class="poster-item"><a href="#"><img src="../images/4.jpg" width="100%"></a></li>
+	</ul>
+</div>
+<script>
+	$(function() {
+		//假设有一个Carousel 这样一个类 
+		// var carousel = new Carousel($('.j_poster').eq(0));
+		Carousel.init($('.j_poster'))
+	})
+</script>
+</body>
+</html>

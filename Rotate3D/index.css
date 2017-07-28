@@ -1,0 +1,45 @@
+/*
+* @Author: sunpei
+* @Date:   2017-07-24 16:09:11
+* @Last Modified by:   sunpei
+* @Last Modified time: 2017-07-24 17:20:18
+*/
+* {
+	margin: 0;
+	padding: 0;
+}
+.poster-mian {
+	position: relative;
+	width: 800px;
+	height: 270px;	
+}
+/*左右切换按钮*/
+.poster-mian .poster-btn {
+	position: absolute;
+	top: 0;
+	width: 100px;
+	height: 270px;
+	background: #e6e6e6;
+	z-index: 10;
+	cursor: pointer;
+}
+.poster-mian .prev-btn {
+	left: 0;
+	background: url(../images/btn_l.png) center center no-repeat;
+}
+.poster-mian .next-btn {
+	right: 0;
+	background: url(../images/btn_r.png) center center no-repeat;
+} 
+
+
+/*图片容器*/
+.poster-list {
+	height: 270px;
+	list-style: none;
+}
+.poster-list .poster-item {
+	position: absolute;
+	left: 0;
+	top: 0;
+}

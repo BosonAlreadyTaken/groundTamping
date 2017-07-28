@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tab选项卡面向对象开发</title>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: #e6e6e6;
+	font-size: 14px;
+	padding: 100px;
+}
+a {
+	text-decoration: none;
+}
+</style>
+<link rel="stylesheet" href="./index.css">
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="./tab.js"></script>
+</head>
+<body>
+<div class="tab js-tab" data-config='{"triggerType":"click","effect":"fade","invoke": 9,"auto": 2000}'> 
+	<ul class="tab-nav">
+		<li class="active"><a href="#">新闻</a></li>
+		<li><a href="#">娱乐</a></li>
+		<li><a href="#">科技</a></li>
+		<li><a href="#">蜡屐</a></li>
+	</ul>
+	<div class="content-wrap">
+		<div class="content-item current">	
+			<img src="../images/a.jpg" width="290" height="190">
+		</div>
+		<div class="content-item">
+			<img src="../images/b.jpg" width="290" height="190">
+		</div>
+		<div class="content-item">	
+			<img src="../images/c.jpeg" width="290" height="190">			
+		</div>
+		<div class="content-item">
+			<img src="../images/d.jpg" width="290" height="190">				
+		</div>
+	</div>
+</div>
+<script>
+	$(function() {
+		//默认我们想这样的调用的
+		Tab.init($('.js-tab'))
+	})
+</script>
+</body>
+</html>

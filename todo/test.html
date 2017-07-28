@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>挑战题</title>
+        <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    </head>
+    <body>
+        <ul id="result" style="list-style:none"></ul>
+        <script type="text/javascript">
+        $(document).ready(function(){
+           var json=[
+            {"name":"小明","sex":"男","age":14,"married":false}
+           ,{"name":"小红","sex":"女","age":11,"married":false}
+           ,{"name":"小刚","sex":"男","age":16,"married":true}
+                ];
+            $.each(json,function(index,e){
+               $("#result").append("<li>姓名:"+ this.name+",性别:"+e.sex+",年龄:"+e.age+",已婚:"+e.married+"</li>"); 
+            });
+        });         
+        </script> 
+    </body>
+</html>

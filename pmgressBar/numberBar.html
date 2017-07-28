@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>数字进度</title>
+  <script src="../js/jquery-3.2.1.min.js"></script> 
+  <script>
+    $(function() {
+      var img = $('img');
+      var num = 0;
+
+      img.each(function(i) {
+        var oImg = new Image();
+        oImg.onload = function() {
+          oImg.onload = null;
+          num++;
+          if(num >= i) { //有缓存 所以要num大于i
+            $('.loading b').html(parseInt(num/$('img').length*100) + '%');
+            $('.loading').fadeOut();
+          }
+          // $('.loading b').html(parseInt(num/$('img').length*100) + '%');
+          // $('.loading').fadeOut();
+          console.log(parseInt(num/$('img').length*100));
+        };
+        oImg.src = img[i].src;
+      });
+    })
+  </script> 
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .loading{
+      /*display: none;*/
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 14;
+      background: #fff;
+    }
+    .loading .pic{
+      width: 64px;
+      height: 64px;
+      /*border: 1px solid orange;*/
+      /*background: url(../images/loading.gif);*/
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      font-size: 26px;
+      text-align: center;
+      line-height: 64px;
+    }
+    .loading .pic span{
+      display: block;
+      width: 80%;
+      height: 80%;
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      border-radius: 50%;
+      box-shadow: 0 3px 0 #666;
+      animation: rotate 1s infinite linear;
+    }
+
+    @keyframes rotate{
+      0%{transform: rotate(0deg);}
+      100%{transform: rotate(360deg);}
+    }
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <div class="pic">
+      <span></span>
+      <b>0%</b>
+    </div>
+  </div>
+  <img src="http://imgsrc.baidu.com/image/c0%3Dshijue%2C0%2C0%2C245%2C40/sign=045d1d4ef9deb48fef64a99d9876505c/a9d3fd1f4134970ac9e997009fcad1c8a7865d03.jpg" alt="">
+  <img src="http://img1.imgtn.bdimg.com/it/u=1902704068,745633125&fm=26&gp=0.jpg" alt="">
+  <img src="http://img5.imgtn.bdimg.com/it/
+  u=259966648,778939189&fm=26&gp=0.jpg" alt="">
+  <img src="http://e.hiphotos.baidu.com/zhidao/pic/item/0df3d7ca7bcb0a46fe7588d76a63f6246a60af8c.jpg" alt="">
+</body>
+</html>

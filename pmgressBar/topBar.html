@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>顶部导航条</title>
+  <script src="../js/jquery-3.2.1.min.js"></script>
+   <style>
+    .loading{
+      /*display: none;*/
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 14;
+      background: #fff;
+    }
+    .loading .pic{
+      width: 10%;
+      height: 5px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #f23;
+    }
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <div class="pic">
+    </div>
+  </div>
+
+  <header>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, cum tempora nisi error iusto officiis dignissimos accusamus praesentium explicabo neque doloremque, est earum vero nihil voluptatem reprehenderit quae nulla labore!
+  </header>
+  <section class="banner">  
+    <img src="http://imgsrc.baidu.com/image/c0%3Dshijue%2C0%2C0%2C245%2C40/sign=045d1d4ef9deb48fef64a99d9876505c/a9d3fd1f4134970ac9e997009fcad1c8a7865d03.jpg" alt="">
+    <img src="http://img1.imgtn.bdimg.com/it/u=1902704068,745633125&fm=26&gp=0.jpg" alt="">
+    <img src="http://img5.imgtn.bdimg.com/it/u=259966648,778939189&fm=26&gp=0.jpg" alt="">
+  </section>
+  
+  <script>
+    $('.loading .pic').animate({width: "50%"},100)
+  </script>
+
+  <section class="pro">
+    <img src="http://imgsrc.baidu.com/image/c0%3Dshijue%2C0%2C0%2C245%2C40/sign=045d1d4ef9deb48fef64a99d9876505c/a9d3fd1f4134970ac9e997009fcad1c8a7865d03.jpg" alt="">
+    <img src="http://img1.imgtn.bdimg.com/it/u=1902704068,745633125&fm=26&gp=0.jpg" alt="">
+    <img src="http://img5.imgtn.bdimg.com/it/u=259966648,778939189&fm=26&gp=0.jpg" alt="">
+  </section>
+  <section class="news">
+    <img src="http://imgsrc.baidu.com/image/c0%3Dshijue%2C0%2C0%2C245%2C40/sign=045d1d4ef9deb48fef64a99d9876505c/a9d3fd1f4134970ac9e997009fcad1c8a7865d03.jpg" alt="">
+    <img src="http://img1.imgtn.bdimg.com/it/u=1902704068,745633125&fm=26&gp=0.jpg" alt="">
+    <img src="http://img5.imgtn.bdimg.com/it/u=259966648,778939189&fm=26&gp=0.jpg" alt="">
+  </section>
+  <footer>
+    <img src="http://imgsrc.baidu.com/image/c0%3Dshijue%2C0%2C0%2C245%2C40/sign=045d1d4ef9deb48fef64a99d9876505c/a9d3fd1f4134970ac9e997009fcad1c8a7865d03.jpg" alt="">
+    <img src="http://img1.imgtn.bdimg.com/it/u=1902704068,745633125&fm=26&gp=0.jpg" alt="">
+    <img src="http://img5.imgtn.bdimg.com/it/u=259966648,778939189&fm=26&gp=0.jpg" alt="">
+  </footer>
+  <script>
+    $('.loading .pic').animate({width: "100%"},100,function() {
+      $('.loading').fadeOut();
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <style type="text/css">
+    .lt{
+      text-decoration:line-through;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container" style="margin-top:30px;">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <a href="#" class="brand">Todo List</a>
+        <form class="navbar-form pull-left">
+        <input type="text" class="span6" id="todo">
+        <button type="button" class="btn" id="add_btn">Add Todo</button>
+      </form>
+      </div>
+    </div>
+
+    <table class="table">
+      <tbody>
+      </tbody>
+    </table>
+
+    
+  </div>
+  <script type="text/javascript" src="store.js"></script>
+  <script type="text/javascript">
+    (function(){
+      //读取store.js中的数据初始加载
+      for(var index in dataSource){
+        var data = dataSource[index];
+        createTode(data.todo,data.done);
+      }
+      var add_btn = document.getElementById("add_btn");
+      //添加新的Todo
+      add_btn.onclick = function(){
+        var todo = document.getElementById("todo");
+        var todoValue = todo.value;
+        if(todoValue) {
+          createTode(todoValue,false);  
+        } else {
+          todo.focus();
+        }
+      };
+      /**
+      * 创建一个Todo
+      * todoValue : todo的内容
+      * done : 是否完成
+      */
+      function createTode(todoValue,done){
+        var todo = document.getElementById("todo");
+        
+        var tr = document.createElement("tr");
+        var ckTd = document.createElement("td");
+        var todoTd = document.createElement("td");
+        
+        var txt = document.createTextNode(todoValue);
+        
+        //判断todo是否完成
+        if(done) {
+          var i = document.createElement("i");
+          i.setAttribute("class","icon icon-ok");
+          todoTd.setAttribute("class","muted lt");
+          ckTd.appendChild(i);
+        } else {
+          var ck = document.createElement("input");
+          ck.setAttribute("type","checkbox");
+          ckTd.appendChild(ck);
+          //添加checkbox完成事件
+          ck.onclick = doWork;
+        }
+        ckTd.setAttribute("width","20");
+        
+        
+        
+        todoTd.appendChild(txt);
+        tr.appendChild(ckTd);
+        tr.appendChild(todoTd);
+        //末尾添加
+        //document.getElementsByTagName("tbody")[0].appendChild(tr);
+        //头部添加
+        document.getElementsByTagName("tbody")[0].insertBefore(tr,document.getElementsByTagName("tbody")[0].firstChild);
+        
+        todo.value = "";
+      }
+      //Todo完成
+      function doWork() {
+        //删除当前的checkbox
+        var td = this.parentNode;
+        td.removeChild(this);
+        //创建√图标
+        var i = document.createElement("i");
+        i.setAttribute("class","icon icon-ok");
+        td.appendChild(i);
+        //获取todo的内容并添加删除线效果
+        var todo_td = td.nextSibling;
+        todo_td.setAttribute("class","muted lt");
+        //alert(todo_td.childNodes[0].nodeValue);
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+/*
+* @Author: sunpei
+* @Date:   2017-07-22 11:58:57
+* @Last Modified by:   sunpei
+* @Last Modified time: 2017-07-24 12:50:13
+*/
+
+.tab {
+	width: 300px;
+}
+.tab .tab-nav {
+	height: 30px;
+	list-style: none;	
+}
+.tab .tab-nav li {
+	float: left;
+	margin-right: 5px;
+	background: #767676;
+	border-radius: 3px 3px 0 0;
+}
+.tab .tab-nav li a {
+	color: #fff;
+}
+.tab .tab-nav li.active {
+	background: #fff;
+}
+.tab .tab-nav li.active a {
+	color: #777;
+}
+.tab .tab-nav li a {
+	display: block;
+	height: 30px;
+	padding: 0 20px;
+	line-height: 30px;
+}
+
+.content-wrap {
+	background: #fff;
+	height: 200px;
+	padding: 5px;
+}
+.content-wrap .content-item {
+	position: absolute;
+	display: none;
+	/*height: 190px*/
+}
+.content-wrap .current {
+	display: block;
+} 
