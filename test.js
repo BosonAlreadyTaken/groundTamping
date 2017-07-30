@@ -93,4 +93,107 @@ var obj = {
 
 // 如果箭头函数内已经按照词法作用域绑定了,用call()或者apply()调用调用箭头函数时,无法对this进行绑定,即传入的参数被忽略
 
+var s = 'Hello';
+
+function greet(name) {
+	console.log(s + ', ' + name + '!');
+}
+module.exports = greet;
+
+//函数greet()是我们在hello模块中定义的,你可能注意到最后一行是一个奇怪的赋值语句,他的意思是把函数greet作为
+//把函数greet作为模块的输出暴露出去,这样其他模块就可以使用greet函数了
+
+
+var greet = require('./hello');
+var s = 'Michael';
+greet(s); //Hello ,Michael!
+
+// 一个模块想要对外暴露变量,可以用module.exports = variable, 一个模块要引用
+//其他模块暴露的变量, 用var ref = require('module_name');就拿到了引用模块的变量
+
+var s = 'global';
+
+var module = {
+	id: 'hello',
+	exports: {}
+};
+var load = function (module) {
+	//读取hello.js代码
+	function greet(name) {
+		....
+	}
+	return module.exports;
+};
+var exported = load(module);
+//保存module
+save(module,exported);
+
+module.exports = function() {return 'foo';};
+
+process === global.process 
+
+process.cwd();
+
+process.nextTick(function() {
+	console.log('nextTick callback!');
+})
+console.log('nextTick was set!');
+
+process.on('exit', function (code) {
+	console.log('about to exit with code: ' + code);
+});
+
+if (typeof(window) === 'undefined') {
+	console.log('node.js');
+} else {
+	console.log('browser');
+}
+
+$.getJSON('http://example.com/ajax',function(data) {
+	console.log('IO结果返回后执行...');
+})
+console.log('不等待结果直接执行后续代码...')
+
+var fs = require('fs');
+
+fs.readFile('sample.txt', 'utf-8', function(err,data) {
+	if (err) {
+		console.log(err);
+	} else {
+		console.log(data);
+	}
+})
+
+//当正常读取时,err参数是null,data参数是读取到的string,当读取错误时,err
+//参数表示一个错误对象,data为undefined
+//由于err是否为null就是判断是否出错的标志,所以通常的判断的逻辑总是
+if (err) {
+	// 出错了
+} else {
+	// 正常
+}
+
+try {
+	var data = fs.readFileSync('sample.txt', 'utf-8');
+	console.log(data);
+} catch(err) {
+	//出错了
+}
+
+var fs = require('fs');
+
+var data = 'Hello, Node.js';
+fs.writeFile('output.txt', data, function(err) {
+	if (err) {
+		console.log(err);
+	} else {
+		console.log('ok.');
+	}
+})
+
+
+
+
+
+
 
